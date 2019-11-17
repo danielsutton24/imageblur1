@@ -26,8 +26,7 @@ class Image
     indexOfOnes=getOnes()
     indexOfOnes.each do |row, column|
       #print row
-   puts "below is row"     
-
+    
         @image[row-1][column]=1 unless row-1==-1
         @image[row][column+1]=1 unless column+1>=@image[row].length 
         @image[row][column-1]=1 unless column-1==-1
@@ -35,24 +34,40 @@ class Image
 
 
       
-       print @image
-     end
+       
+     #end
    
     end
     #print @image
   end
 
+  def manDistance(run)
+  
+    run.times do |blur|
+       blur()
+    end
+  end
+
+
+
+
+
+end
 
 
   image = Image.new([
-  [1, 0, 0, 1],
-  [0, 0, 0, 0],
-  [0, 0, 0, 0],
-  [1, 0, 0, 1]
+  [0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 1, 0],
+  [0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 1, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0]
 ])
 
 
 
-image.blur
+image.manDistance(2)
+image.output_image
 
 
